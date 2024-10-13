@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import educ.iesam.imp_pokedex.R
 import educ.iesam.imp_pokedex.features.pokemon.domain.Pokemon
 
-class PokemonAdapter (private var pokemons: List<Pokemon>) :
-RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
+class PokemonAdapter (
+    private var pokemons: List<Pokemon>,
+    private val onItemClick: (Int) -> Unit
+) : RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
 
 
     class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -27,6 +29,10 @@ RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
        val pokemon = pokemons[position]
         holder.pokemonNameTextView.text = pokemon.name
+
+        holder.itemView.setOnClickListener {
+            onItemClick(pokemon.id)
+        }
     }
 
 

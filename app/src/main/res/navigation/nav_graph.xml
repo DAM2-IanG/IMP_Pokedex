@@ -7,6 +7,21 @@
     <fragment
         android:id="@+id/pokemonListFragment"
         android:name="educ.iesam.imp_pokedex.features.pokemon.presentation.PokemonListFragment"
-        tools:layout="@layout/fragment_pokemon_list"/>
+        tools:layout="@layout/fragment_pokemon_list">
 
+        <action
+            android:id = "@+id/pokemonListFragment_to_pokemonDetailFragment"
+            app:destination="@id/pokemonDetailFragment"
+            app:enterAnim="@animator/nav_default_enter_anim"
+            app:exitAnim="@animator/nav_default_pop_exit_anim"/>
+    </fragment>
+
+    <fragment
+        android:id = "@+id/pokemonDetailFragment"
+        android:name="educ.iesam.imp_pokedex.features.pokemon.presentation.PokemonDetailFragment"
+        tools:layout="@layout/fragment_pokemon_detail">
+        <argument
+            android:name = "pokemonId"
+            app:argType="integer"/>
+    </fragment>
 </navigation>

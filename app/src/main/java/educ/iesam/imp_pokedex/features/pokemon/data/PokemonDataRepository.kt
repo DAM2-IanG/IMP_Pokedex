@@ -1,6 +1,7 @@
 package educ.iesam.imp_pokedex.features.pokemon.data
 
 import educ.iesam.imp_pokedex.features.pokemon.data.remote.PokemonApiDataSource
+import educ.iesam.imp_pokedex.features.pokemon.domain.Pokemon
 import educ.iesam.imp_pokedex.features.pokemon.domain.PokemonList
 import educ.iesam.imp_pokedex.features.pokemon.domain.PokemonRepository
 
@@ -11,5 +12,9 @@ class PokemonDataRepository (
 
     override suspend fun getPokemonList(limit: Int, offset: Int): PokemonList {
         return remoteDataSource.getPokemonList(limit, offset)
+    }
+
+    override suspend fun getPokemonById(id: Int): Pokemon {
+       return remoteDataSource.getPokemonById(id)
     }
 }
