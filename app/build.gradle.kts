@@ -33,16 +33,28 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
-
+    //App
+    implementation(libs.retrofit2)
+    implementation(libs.retrofit.converter)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.gson.format)
+    implementation(libs.view.model.scope)
+    //Navigation
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    //Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
+    //Android Testing
     androidTestImplementation(libs.androidx.espresso.core)
 }
